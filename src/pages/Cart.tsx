@@ -2,6 +2,7 @@ import Layout from "@/comman/Layout"
 import { useDispatch, useSelector } from "react-redux"
 import { MdDeleteForever } from "react-icons/md";
 import { incrementQuantity, decrementQuantity,removeItem } from "../redux/slice/cartSlice";
+import { NavLink } from "react-router-dom";
 
 
 const Cart = () => {
@@ -57,11 +58,12 @@ const Cart = () => {
               <h2 className="text-xl font-semibold">Order Summary</h2>
               <p className="mt-2">Total Items:{totalQuantity}</p>
               <p className="mt-2">Total Price:{totalPrice} </p>
-              <button
+              <NavLink to="/checkout" 
                 type="button"
+
                 className="m-4 text-xs w-full border-[2px] border-gray-300  text-black py-2 rounded-md">
                 Proceed to Checkout
-              </button>
+              </NavLink>
             </div>
           </div>
      

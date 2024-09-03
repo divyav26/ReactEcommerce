@@ -74,9 +74,14 @@ const cartSlice = createSlice({
                 state.totalPrice = parseFloat((state.totalPrice - (item.quantity * item.item.price)).toFixed(2));
             }
         },
+        clearCart: (state) => {
+            state.cartItemData = [];
+            state.totalQuantity = 0;
+            state.totalPrice = 0;
+        },
     }
 
 
 })
-export const {addTocart,incrementQuantity,decrementQuantity,removeItem} =cartSlice.actions
+export const {addTocart,incrementQuantity,decrementQuantity,removeItem,clearCart} =cartSlice.actions
 export default cartSlice.reducer

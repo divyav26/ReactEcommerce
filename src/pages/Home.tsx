@@ -8,6 +8,8 @@ import Layout from "../comman/Layout";
 import { addTocart } from "../redux/slice/cartSlice";
 import { showErrorToast, showSuccessToast } from "@/comman/CommanToast";
 import { Input } from "@/components/ui/input";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -23,7 +25,10 @@ const Home: React.FC = () => {
   const [filterSearch, setFilterSearch] = useState<Product[]>([]);
   const [searchItem, setSearchItem] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  console.log(selectedCategory)
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isLoggedIn = !!Cookies.get('user_token');
 
   const fetchProducts = async () => {
     try {
@@ -80,8 +85,14 @@ const Home: React.FC = () => {
   }, []);
 
   const handleAddToCart = (item: Product) => {
-    dispatch(addTocart(item));
-    showSuccessToast(`${item.title.slice(0, 5)} added to cart!`);
+    if (isLoggedIn) {
+      dispatch(addTocart(item));
+      showSuccessToast(`${item.title.slice(0, 5)} added to cart!`);
+    }
+    else {
+      navigate("/login");
+    }
+    
   };
 
 
@@ -91,7 +102,7 @@ const Home: React.FC = () => {
         <CarouselSwiper />
       </div>
 
-      <div className="py-4 px-[2rem]">
+      <div className="py-4 px-[4rem]">
         <h1 className="text-center text-xl py-6">All Products!!</h1>
         <div className="md:flex md:justify-between items-center py-4">
           <div className="flex justify-between items-center gap-4">
