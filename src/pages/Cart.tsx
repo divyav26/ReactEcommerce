@@ -56,12 +56,12 @@ const Cart = () => {
   
             <div className="p-4 rounded-md shadow-sm border">
               <h2 className="text-xl font-semibold">Order Summary</h2>
-              <p className="mt-2">Total Items:{totalQuantity}</p>
-              <p className="mt-2">Total Price:{totalPrice} </p>
+              <p className="m-2">Total Items:{totalQuantity}</p>
+              <p className="m-2">Total Price:{totalPrice} </p>
               <NavLink to="/checkout" 
                 type="button"
 
-                className="m-4 text-xs w-full border-[2px] border-gray-300  text-black py-2 rounded-md">
+                className="mt-6 text-xs w-full border-[2px] border-gray-300  text-black  py-2 px-4 rounded-md">
                 Proceed to Checkout
               </NavLink>
             </div>
