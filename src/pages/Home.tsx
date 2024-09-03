@@ -105,7 +105,7 @@ const Home: React.FC = () => {
       <div className="py-4 px-[4rem]">
         <h1 className="text-center text-xl py-6">All Products!!</h1>
         <div className="md:flex md:justify-between items-center py-4">
-          <div className="flex justify-between items-center gap-4">
+          <div className="flex flex-wrap lg:justify-between lg:items-center gap-4">
             <button className="border border-gray-300 text-sm py-1 px-4" onClick={()=> categoryFilter("")}>All</button>
             <button className="border border-gray-300 text-sm py-1 px-4" onClick={()=>categoryFilter("men's clothing")}>Men's clothing</button>
             <button className="border border-gray-300 text-sm py-1 px-4" onClick={()=>categoryFilter("jewelery")}>jewelery</button>
